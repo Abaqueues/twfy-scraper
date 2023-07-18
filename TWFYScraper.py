@@ -9,4 +9,3 @@ soup = BeautifulSoup(pg_text.content, "html.parser")
 results = soup.find(id = "ResultsContainer")
 
 py_search = results.find_all("div", class_="card-content")
-
