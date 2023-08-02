@@ -70,4 +70,3 @@ for name, url in names_urls:
 #     xml = open("xmls/" + name, 'wb')
 #     xml.write(res.read())
 #     xml.close()    
-#
