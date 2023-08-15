@@ -57,7 +57,7 @@ def scrape_file(name, url):
     #     return
     print("Downloading %s" % url)
     r = requests.get(url)
-    with open("xmls//" + name.split("/")[-1], "wb") as f:
+    with open("E:\Documents\Education\PG University of Birmingham\MSc Computer Science\Summer Semester\MSc Projects\Project Files\Dataset\xml" + name.split("/")[-1], "wb") as f:
         f.write(r.content)
 
 for name, url in names_urls:
