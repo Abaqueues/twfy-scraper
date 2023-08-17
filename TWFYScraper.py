@@ -41,7 +41,7 @@ names_urls = zip(names, urls)
 print(names_urls)
 
 # Function to download .xml files 
-def scrape_file(name, url):
+def scrapeFile(name, url):
     print(_OUTPUT_FOLDER + "\\" + name)
     if os.path.exists(_OUTPUT_FOLDER + "\\" + name) == True:
         print(f"File '{name}' already exists. Skipping..." + "\n")
@@ -58,7 +58,7 @@ for name, url in zip(names, urls):
 print("Initiating scraping loop")
 for name, url in list(names_urls):
     print(f"Scraping '{name}'.")
-    scrape_file(name, url)
+    scrapeFile(name, url)
     
 print("Scraping complete...\n")
     #   + f"{skipped}" + " files skipped...\n"
