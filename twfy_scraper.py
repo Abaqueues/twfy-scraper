@@ -5,11 +5,11 @@ from bs4 import BeautifulSoup as bs
 
 # Use requests library to access the website
 _URL = "https://www.theyworkforyou.com/pwdata/scrapedxml/debates/"
-page = requests.get(_URL)
+_PAGE = requests.get(_URL)
 
 # Define scraper parameters
-_YEAR = 2023
-_OUTPUT_FOLDER = "E:\\Documents\\Education\\PG University of Birmingham\\MSc Computer Science\\Summer Semester\\MSc Projects\\Project Files\\Dataset\\xml\\"
+_YEAR = 2013
+_OUTPUT_FOLDER = "E:\\Documents\\Education\\PG University of Birmingham\\MSc Computer Science\\Summer Semester\\MSc Projects\\Project Files\\Dataset\\final\\xml"
 
 print("Scraping TWFY .xml debate transcripts from " + f"{_YEAR} onwards...")
 print("Outputting to " + f"'{_OUTPUT_FOLDER}'..." + "\n")
@@ -23,7 +23,7 @@ def isAfter(string):
         return False
 
 # Instantiate BeautifulSoup object
-soup = bs(page.content, "html.parser")
+soup = bs(_PAGE.content, "html.parser")
 
 urls = []
 names = []
@@ -33,6 +33,7 @@ for i, link in enumerate(soup.findAll("a")):
     _FULLURL = _URL + link.get("href")
     if _FULLURL.endswith(".xml"):
         if isAfter(_FULLURL):
+            print(_FULLURL)
             urls.append(_FULLURL)
             names.append(soup.select("a")[i].attrs["href"])
 
