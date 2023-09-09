@@ -7,12 +7,15 @@ from bs4 import BeautifulSoup as bs
 _URL = "https://www.theyworkforyou.com/pwdata/scrapedxml/debates/"
 _PAGE = requests.get(_URL)
 
-# Define scraper parameters
+# Define scraper parameter and output folder path
 _YEAR = 2013
-_OUTPUT_FOLDER = "E:\\Documents\\Education\\PG University of Birmingham\\MSc Computer Science\\Summer Semester\\MSc Projects\\Project Files\\Dataset\\final\\xml"
+_XML_OUTPUT_FOLDER = ".\\TWFYScraper\\xml\\"
+
+# Check whether the output folder exists
+os.makedirs(_XML_OUTPUT_FOLDER, exist_ok=True)
 
 print("Scraping TWFY .xml debate transcripts from " + f"{_YEAR} onwards...")
-print("Outputting to " + f"'{_OUTPUT_FOLDER}'..." + "\n")
+print("Outputting to " + f"'{_XML_OUTPUT_FOLDER}'..." + "\n")
 
 # Function to check whether .xml file corresponds to debates after given date
 def isAfter(string):
@@ -43,13 +46,13 @@ print(names_urls)
 
 # Function to download .xml files 
 def scrapeFile(name, url):
-    print(_OUTPUT_FOLDER + "\\" + name)
-    if os.path.exists(_OUTPUT_FOLDER + "\\" + name) == True:
+    print(_XML_OUTPUT_FOLDER + name)
+    if os.path.exists(_XML_OUTPUT_FOLDER + name) == True:
         print(f"File '{name}' already exists. Skipping..." + "\n")
     else:
         print("Downloading %s" % url + ".\n")
         r = requests.get(url)
-        with open(_OUTPUT_FOLDER + name.split("/")[-1], "wb") as f:
+        with open(_XML_OUTPUT_FOLDER + name.split("\\")[-1], "wb") as f:
             f.write(r.content)
         
 for name, url in zip(names, urls):
