@@ -1,6 +1,4 @@
-# TWFYScraper.py
-
-## TheyWorkForYouScraper
+# twfy-scraper
 
 ## Description
 A Python webscraper that connects to the TheyWorkForYou scraped .xml index for Hansard parliamentary debates. The webscraper collates a list of debates after a given year and proceeds to download and save each of the .xml files in the list.
@@ -12,5 +10,3 @@ Modify line 13's variable according to limit (by year) the number of files you w
 
 ## Roadmap
 Currently, the webscraper must compile the list of .xml files each time it is run. Ideally, I would like this list to be output to a .txt file - if the first result of the query is the same as the first file in the .txt file, compilation of the list can be skipped. 
-
-I would also like to skip downloading .xml files that already exist within the folder. Currently, the webscraper downloads any relevant .xml files, regardless of whether they already exist.
